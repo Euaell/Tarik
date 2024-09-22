@@ -23,6 +23,9 @@ import { validationSchema } from './config/validationSchema';
         database: configService.get<string>('DATABASE_NAME'),
         entities: [__dirname + '/**/*.entity{.ts,.js}'],
         synchronize: true, // Set to false in production!
+        ssl: {
+          rejectUnauthorized: false, // TODO: Remove this in production
+        }
       }),
       inject: [ConfigService],
     }),
